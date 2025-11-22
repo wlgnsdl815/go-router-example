@@ -5,6 +5,7 @@ import 'package:go_router_example/screens/login_screen.dart';
 import 'package:go_router_example/screens/param_screen.dart';
 import 'package:go_router_example/screens/private_screen.dart';
 import 'package:go_router_example/screens/profile_screen.dart';
+import 'package:go_router_example/screens/setting_screen.dart';
 import 'package:go_router_example/screens/splash_screen.dart';
 
 enum AppRoute {
@@ -99,7 +100,7 @@ class AppRouter {
               GoRoute(
                 path: '/setting',
                 name: AppRoute.setting.name,
-                builder: (context, state) => ParamScreen(),
+                builder: (context, state) => SettingScreen(),
               ),
             ],
           ),
