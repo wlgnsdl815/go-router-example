@@ -14,9 +14,11 @@ class DefaultLayout extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 20,
           children: [
             Text(appRoute.state.name!.toUpperCase()),
             if (children != null && children!.isNotEmpty) ...children!,
