@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router_example/routes/app_route.dart';
+import 'package:go_router_example/routes/app_router.dart';
 
 class DefaultLayout extends StatelessWidget {
   final List<Widget>? children;
@@ -14,13 +14,12 @@ class DefaultLayout extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(),
-
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: 20,
           children: [
-            Text(appRoute.state.name!.toUpperCase()),
+            Text(AppRouter.appRoute.state.name!.toUpperCase()),
             if (children != null && children!.isNotEmpty) ...children!,
           ],
         ),

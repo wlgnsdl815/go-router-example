@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_router_example/routes/app_route.dart';
+import 'package:go_router_example/routes/app_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,7 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(Duration(seconds: 2)).then((_) {
       if (mounted) {
-        context.goNamed(AppRoute.home.name);
+        isLogin
+            ? context.goNamed(AppRoute.home.name)
+            : context.goNamed(AppRoute.login.name);
       }
     });
   }

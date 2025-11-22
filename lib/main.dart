@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router_example/routes/app_route.dart';
+import 'package:go_router_example/routes/app_router.dart';
 
 void main() {
   runApp(const GoRouterExampleApp());
@@ -11,7 +11,7 @@ class GoRouterExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: appRoute,
+      routerConfig: AppRouter.appRoute,
     );
   }
 }

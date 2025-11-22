@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:go_router_example/layouts/default_layout.dart';
 
 class PrivateScreen extends StatelessWidget {
@@ -6,6 +7,13 @@ class PrivateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultLayout();
+    return DefaultLayout(
+      children: [
+        ElevatedButton(
+          onPressed: () => context.pop(),
+          child: Text('Pop'),
+        ),
+      ],
+    );
   }
 }
