@@ -10,9 +10,17 @@ enum AppRoute {
   home,
   profile,
   setting,
+  login,
+  private,
 }
 
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _homeNavigatorKey = GlobalKey<NavigatorState>();
+final _profileNavigatorKey = GlobalKey<NavigatorState>();
+final _settingNavigatorKey = GlobalKey<NavigatorState>();
+
 final appRoute = GoRouter(
+  navigatorKey: _rootNavigatorKey,
   routes: [
     GoRoute(
       path: '/',
@@ -20,6 +28,7 @@ final appRoute = GoRouter(
       builder: (context, state) => SplashScreen(),
     ),
     StatefulShellRoute.indexedStack(
+      parentNavigatorKey: _rootNavigatorKey,
       pageBuilder: (context, state, navigationShell) => NoTransitionPage(
         child: BottomNavigationScaffold(
           navigationShell: navigationShell,
@@ -27,6 +36,7 @@ final appRoute = GoRouter(
       ),
       branches: [
         StatefulShellBranch(
+          navigatorKey: _homeNavigatorKey,
           routes: [
             GoRoute(
               path: '/home',
@@ -38,6 +48,7 @@ final appRoute = GoRouter(
           ],
         ),
         StatefulShellBranch(
+          navigatorKey: _profileNavigatorKey,
           routes: [
             GoRoute(
               path: '/profile',
@@ -47,6 +58,7 @@ final appRoute = GoRouter(
           ],
         ),
         StatefulShellBranch(
+          navigatorKey: _settingNavigatorKey,
           routes: [
             GoRoute(
               path: '/setting',
@@ -68,9 +80,7 @@ class BottomNavigationScaffold extends StatelessWidget {
     required this.navigationShell,
   });
 
-  void _onTap(int index) async {
-    navigationShell.goBranch(index);
-  }
+  void _onTap(int index) async => navigationShell.goBranch(index);
 
   @override
   Widget build(BuildContext context) {
